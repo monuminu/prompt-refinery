@@ -1,0 +1,16 @@
+{
+  "name": "prompt-refinery",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A local prompt optimizer with a bundled GPT-6 prompting playbook.",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "start": "node src/server.mjs",
+    "optimize": "node src/cli.mjs",
+    "test": "node --test",
+    "check": "node --check src/config.mjs && node --check src/optimizer.mjs && node --check src/server.mjs && node --check src/cli.mjs && node --check public/app.js"
+  },
+  "license": "MIT"
+}

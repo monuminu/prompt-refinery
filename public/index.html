@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Revise an existing prompt with a bundled GPT-6 playbook. A local workspace with your own API key.">
+  <title>Prompt Refinery — Better instructions, same intent.</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar wrap">
+    <a class="brand" href="/" aria-label="Prompt Refinery home"><span class="brand-mark" aria-hidden="true">[↗]</span> Prompt Refinery<span class="edition">LOCAL STUDIO</span></a>
+    <span class="local-label"><span class="dot" aria-hidden="true"></span> Your key. Your workspace.</span>
+  </header>
+  <main class="wrap">
+    <section class="intro" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">A LITTLE CLARITY GOES A LONG WAY</p>
+        <h1 id="page-title">Good intent.<br><span>Better instructions.</span></h1>
+        <p class="intro-copy">Bring the prompt you already have. Refine what it asks,<br class="desktop-break"> keep what matters, and make the result easier to use.</p>
+      </div>
+      <aside class="guide-card" aria-label="Bundled guidance">
+        <span class="guide-icon" aria-hidden="true">✳</span>
+        <div><p class="guide-title">Built with a GPT-6 playbook</p><p class="guide-copy">Guidance lives in the repo. <br>No article fetch required.</p><span id="model-name" class="model-tag">Checking configuration…</span></div>
+      </aside>
+    </section>
+
+    <div id="setup-message" class="notice" role="status" hidden></div>
+
+    <form id="optimizer-form">
+      <div class="workspace">
+        <section class="editor panel" aria-labelledby="original-title">
+          <div class="panel-heading"><div class="heading-label"><span class="step">01</span><h2 id="original-title">Your original prompt</h2></div><span class="small-label">START HERE</span></div>
+          <div class="editor-toolbar"><label for="category">Task type</label><select id="category" name="category"><option value="general">General purpose</option><option value="writing">Writing &amp; content</option><option value="coding">Code &amp; engineering</option><option value="agentic">Agent &amp; tool workflows</option></select><span id="char-count" class="char-count">0 / 30,000</span></div>
+          <label class="sr-only" for="prompt">Existing prompt</label>
+          <textarea id="prompt" name="prompt" maxlength="30000" required placeholder="Paste your existing prompt here…&#10;&#10;What should the model do? What does a useful result look like?" spellcheck="false"></textarea>
+          <div class="sample-row"><span>Need a starting point?</span><button type="button" class="text-button" data-sample="writing">Writing</button><button type="button" class="text-button" data-sample="coding">Coding</button><button type="button" class="text-button" data-sample="agentic">Agent</button></div>
+          <details class="context-area"><summary>Add context <span>optional</span></summary><label class="sr-only" for="context">Audience, requirements or context</label><textarea id="context" name="context" maxlength="10000" placeholder="Audience, requirements, available tools, or something the prompt must preserve…"></textarea></details>
+          <div class="submit-row"><span class="hint">Your intent stays at the center.</span><button id="optimize-button" class="primary-button" type="submit" disabled>Refine prompt <span aria-hidden="true">↗</span></button></div>
+        </section>
+
+        <section class="revision panel" aria-labelledby="revision-title" aria-busy="false">
+          <div class="panel-heading"><div class="heading-label"><span class="step accent">02</span><h2 id="revision-title">The refined version</h2></div><span class="small-label">READY TO USE</span></div>
+          <div id="empty-state" class="empty-state"><span class="empty-mark" aria-hidden="true">[ ↗ ]</span><h3>Same purpose.<br>A clearer path.</h3><p>Your revised prompt will appear here, <br>with notes on what changed and why.</p><span class="empty-rule"></span><span class="empty-caption">CLARITY &nbsp; / &nbsp; CONTEXT &nbsp; / &nbsp; CONTROL</span></div>
+          <label class="sr-only" for="optimized-prompt">Refined prompt, editable</label><textarea id="optimized-prompt" class="result-text" spellcheck="false" hidden></textarea>
+          <div class="output-footer"><span id="output-hint" class="hint">Review and edit before using.</span><div class="output-actions"><button id="copy-button" type="button" class="secondary-button" disabled>Copy</button><button id="download-button" type="button" class="secondary-button" disabled>Download <span aria-hidden="true">↓</span></button></div></div>
+        </section>
+      </div>
+    </form>
+
+    <div class="status-row"><p id="status" role="status" aria-live="polite">Ready when you are.</p><span id="elapsed" aria-hidden="true"></span></div>
+    <div id="error-message" class="error-message" role="alert" hidden></div>
+
+    <section id="revision-notes" class="notes" aria-label="Revision notes" hidden>
+      <div><p class="eyebrow">THE EDIT</p><h3>What changed</h3><ul id="changes"></ul></div>
+      <div><p class="eyebrow">THE GAPS</p><h3>Assumptions to review</h3><ul id="assumptions"></ul></div>
+      <div><p class="eyebrow">THE PROOF</p><h3>Ways to test it</h3><ul id="checks"></ul></div>
+    </section>
+
+    <footer><span>Made for thoughtful iteration.</span><span>Prompts go to your configured API provider. No local history is saved.</span></footer>
+  </main>
+</body>
+</html>
