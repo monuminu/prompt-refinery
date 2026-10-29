@@ -10,6 +10,6 @@ Verified 2026-10-29.
 - Independent code review identified the retry issue above; the fix received a follow-up review with no material issue remaining.
 - `.env` is ignored. The public repository contains only the blank `.env.example` template.
 
-GitHub Actions also checks syntax and runs the test suite on Node.js 22 and 24. Consult the Actions tab for the current result. The README screenshot shows the real unconfigured app, not fabricated model output.
+GitHub Actions also checks syntax and runs the test suite on Node.js 22 and 24. The [initial code validation run](https://github.com/monuminu/prompt-refinery/actions/runs/40899475390) passed. Consult the Actions tab for subsequent results. The README screenshot shows the real unconfigured app, not fabricated model output.
 
 No live OpenAI model generation or comparative prompt-quality evaluation was performed for this release. The API contract is integration-tested; real account access and revision quality must be checked using the user's own credentials and representative inputs.

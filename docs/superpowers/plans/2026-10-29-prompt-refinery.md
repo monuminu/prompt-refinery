@@ -50,5 +50,5 @@
 
 - [x] Document quickstart, endpoint requirements, limitations, data flow and playbook update procedure.
 - [x] Request an independent review; fix material issues and rerun affected tests.
-- [ ] Scan tracked files for secrets, commit, create public monuminu/prompt-refinery and push.
-- [ ] Verify the remote visibility, source files and CI; share the repository URL.
+- [x] Scan tracked files for secrets, commit, create public monuminu/prompt-refinery and push.
+- [x] Verify the remote visibility, source files and CI; share the repository URL.
